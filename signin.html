@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<title>Signup Form-Myweb</title>
+
+<script>
+ function validate()
+	{
+	var firstname = document.getElementById("firstname");
+	var lastname = document.getElementById("lastname");
+	var cellno = document.getElementById("cellno");
+	var email = document.getElementById("email");
+	var password = document.getElementById("password");
+	var regEx = /^[A-Za-z]+$/ ;
+	var phone = /^\d{10}$/ ;
+	var mail = /^[a-z0-9]+@[a-z0-9-]+(.[a-z0-9-]+)*$/ ;
+
+	if(firstname.value.trim() =="" || !(firstname.value.match(regEx)) )
+	{
+	  alert("Enter First name with only alphabets without any space")
+	  return false;
+	}
+	else if(lastname.value.trim() =="" || !(lastname.value.match(regEx)) )
+        { 
+          alert("Enter last name with only alphabets without any spaces")
+          return false;
+        }
+	
+	else if(!(cellno.value.match(phone)))
+	{
+	alert("Enter your phone number")
+	return false;
+	}
+	
+	else if(!(email.value.match(mail)))
+	{
+	alert("Enter the vaild email !")
+	return false;
+	}
+
+	else if(password.value.trim() == "" || password.value.trim().length<8)
+	{
+	alert(" Password should be 8 or more with no spaces !!!")
+        return false;
+ 	}
+	else
+	{
+	return true;
+	}
+	}
+</script>
+
+</head>
+<body>
+<center>
+<h1> SignIn Form  </h1>
+<form onsubmit ="return validate()" action ="myweb.html">
+	First Name:<input type ="text" id ="firstname"><br><br>
+	Last Name:<input type ="text" id ="lastname"><br><br>
+	Phone Number:<input type ="tel" id ="cellno"><br><br>
+	Email:<input type ="email" id ="email"><br><br>
+	password:<input type ="password" id ="password"><br><br>
+	<button onclick ="validate()" type ="submit">Sign in</button><br><br>
+	Already have an account?<a href ="myweb.html">Login</a>
+</form>
+</center>
+</body>
+</html>
